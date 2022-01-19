@@ -1,4 +1,3 @@
-/* nunito-300 - latin_cyrillic */
 @font-face {
   font-family: "Nunito";
   font-style: normal;
@@ -8,7 +7,6 @@
     url("../fonts/nunito-v20-latin_cyrillic-300.woff") format("woff");
 }
 
-/* nunito-600 - latin_cyrillic */
 @font-face {
   font-family: "Nunito";
   font-style: normal;
@@ -18,7 +16,6 @@
     url("../fonts/nunito-v20-latin_cyrillic-600.woff") format("woff");
 }
 
-/* nunito-900 - latin_cyrillic */
 @font-face {
   font-family: "Nunito";
   font-style: normal;
@@ -67,6 +64,7 @@ button {
   color: #ffffff;
   font-weight: 900;
   font-size: 30px;
+  text-transform: uppercase;
 }
 .main {
   padding: 60px 30px;
@@ -104,6 +102,14 @@ button {
   font-weight: 600;
   font-size: 18px;
   color: #296c82;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  transition: background-color .3s ease-in-out;
+}
+.main__btn:hover {
+  background-color: #d7e5ec;
 }
 .selection {
   padding: 50px;
@@ -113,6 +119,15 @@ button {
   flex-direction: column;
   overflow-y: auto;
   max-height: 100%;
+  scrollbar-color: rgba(140, 140, 140, 0.432);
+  scrollbar-width: thin;
+}
+.selection__list::-webkit-scrollbar {
+  width: 6px;
+}
+.selection__list::-webkit-scrollbar-thumb {
+  background-color: rgba(140, 140, 140, 0.432);
+  border-radius: 8px;
 }
 .selection__item {
   display: flex;
@@ -132,12 +147,17 @@ button {
   border: none;
   padding: 16px 20px;
   overflow: hidden;
+  transition: background-color .4s ease;
+}
+.selection__theme:hover {
+  background-color: #dcdedf;
+  transition: background-color .6s ease;
 }
 .selection__theme:not(:last-child) {
   margin-right: 20px;
 }
-.selection__result{
-  max-width: 63px;
+.selection__result {
+  width: min-content;
 }
 .selection__result-ratio {
   display: block;
@@ -153,4 +173,232 @@ button {
   font-style: 12px;
   line-height: 110%;
   color: #8c8c8c;
+}
+
+.main__box_question {
+  padding: 60px 120px;
+  height: auto;
+  min-height: 540px;
+}
+.main__form-question {
+  position: relative;
+}
+.main__form-question::after {
+  content: attr(data-count);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-weight: 300;
+  font-size: 18px;
+  color: #8c8c8c;
+}
+.answer {
+  position: relative;
+  display: block;
+  margin-bottom: 26px;
+  font-weight: 600;
+  font-size: 18px;
+  padding-left: 65px;
+}
+/* checkbox */
+.answer__checkbox {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  margin: 0 0 0 -65px;
+}
+.answer__checkbox::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 20px #0000003d;
+  transition: box-shadow 0.4s ease;
+  border-radius: 8px;
+}
+.answer__checkbox:focus:before,
+.answer__checkbox:hover:before {
+  box-shadow: 0 2px 20px #296c8279;
+  transition: box-shadow 0.4s ease;
+}
+.answer__checkbox::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  height: 8px;
+  width: 17px;
+  border: 2px solid #434343;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.answer__checkbox:checked:after {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+/* radio */
+.answer__radio {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  margin: 0 0 0 -65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.answer__radio::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 20px #0000003d;
+  transition: box-shadow 0.4s ease;
+  border-radius: 50%;
+}
+.answer__radio:focus:before,
+.answer__radio:hover:before {
+  box-shadow: 0 2px 20px #296c8279;
+  transition: box-shadow 0.4s ease;
+}
+.answer__radio::after {
+  content: "";
+  position: relative;
+  top: -4px;
+  left: 0;
+  height: 14px;
+  width: 14px;
+  /* border: 2px solid #434343;
+  border-top: none;
+  border-right: none; */
+  border-radius: 50%;
+  background-color: #434343;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.answer__radio:checked:after {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.main__box_result {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.result__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: auto;
+}
+.result__ratio {
+  width: 127px;
+  height: 127px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5186e7;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 600;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.result__ratio_1 {
+  background-color: #dc1c1c;
+}
+.result__ratio_2 {
+  background-color: #efcf24;
+}
+.result__ratio_3 {
+  background-color: #49f050;
+}
+.result__text {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* media */
+@media (max-width: 1024px) {
+  .selection__list {
+    padding-right: 30px;
+  }
+  .selection__theme {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .header__container {
+    padding: 0 20px;
+  }
+  .main {
+    padding: 40px 20px;
+  }
+  .main__title {
+    font-size: 34px;
+  }
+  .main__box {
+    padding: 40px;
+  }
+  .selection__list {
+    padding-right: 15px;
+  }
+  .selection__theme {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+  .selection__item {
+    margin-bottom: 10px;
+  }
+  .selection__result {
+    display: flex;
+    align-items: center;
+  }
+  .selection__result-text {
+    display: none;
+  }
+  .selection__theme:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+@media (max-width: 560px) {
+  .main {
+    padding: 30px 10px;
+  }
+  .main__box {
+    padding: 15px;
+    border-radius: 15px
+  }
+  .main__btn:not(.result__return) {
+    margin-left: 0;
+    min-width: 100%;
+  }
+  .main__form-question::after {
+    bottom: -35px;
+  }
+  .main__subtitle {
+    font-size: 20px;
+  }
+  .selection__result-ratio {
+    font-size: 18px;
+  }
 }
