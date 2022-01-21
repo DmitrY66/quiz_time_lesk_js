@@ -284,9 +284,6 @@ button {
   left: 0;
   height: 14px;
   width: 14px;
-  /* border: 2px solid #434343;
-  border-top: none;
-  border-right: none; */
   border-radius: 50%;
   background-color: #434343;
 
@@ -296,6 +293,17 @@ button {
 .answer__radio:checked:after {
   opacity: 1;
   transition: opacity 0.4s ease;
+}
+
+.main__form-question_error .answer__checkbox::before,
+.main__form-question_error .answer__radio::before {
+  animation: blink .3s ease-in-out 3;
+}
+
+@keyframes blink {
+  to {
+    box-shadow: 0 1px 8px #e405057a;
+  }
 }
 
 .main__box_result {
@@ -331,6 +339,12 @@ button {
 }
 .result__ratio_3 {
   background-color: #49f050;
+}
+.result__ratio_4 {
+  background-color: #4968f0;
+}
+.result__ratio_5 {
+  background-color: #c949f0;
 }
 .result__text {
   font-weight: 600;
